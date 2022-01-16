@@ -1,0 +1,95 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Adabox",
+        "description": "This is an API Adabox",
+        "version": "1.0.0",
+        "contact": {
+            "email": "joaobarbosa@adabox.bom.br"
+        }
+    },
+    "paths": {
+        "/categories": {
+            "post": {
+                "tags":["Pessoa"],
+                "summary": "Create a Pessoa",
+                "description": "Create a new Pessoa",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "Nome_Usuario": {
+                                        "type": "string"
+                                    },
+                                    "Email": {
+                                        "type": "string"
+                                    },
+                                    "Senha": {
+                                        "type": "string"
+                                    },
+                                    "Celular": {
+                                        "type": "string"
+                                    },
+                                    "Telefone_Adicional": {
+                                        "type": "string"
+                                    },
+                                    "Avatar": {
+                                        "type": "string"
+                                    },
+                                    "idEndereço": {
+                                        "type": "string"
+                                    },
+                                    "idHistotico": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "category name sample",
+                                    "description": "category description sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Category already exists"
+                    }
+                }
+            },
+            "get":{
+                "tags": ["Category"],
+                "summary":"List all categories",
+                "description":"List all categories",
+                "responses":{
+                    "200":{
+                        "description": "Sucess",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "description":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
